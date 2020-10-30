@@ -10,7 +10,7 @@ const app = express();
 // Sets an Initial port for listeners
 const PORT = process.env.PORT || 6900;
 
-//  Initialize notesData
+//  Initialize notes
 
 let notes = [];
 

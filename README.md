@@ -19,7 +19,7 @@ you can clone the repository on github if you wish to run it locally, or you can
 ## Usage
 Simply type the title and details for the not you wish to add then click the save icon. If you wish to add a new note you can either click the pencil icon or the "Click here to add new note" section at the top of the notes list
 
-[![How to use ReadMe Generator](https://i9.ytimg.com/vi/bZuev_pO32A/mq2.jpg?sqp=COSh4fwF&rs=AOn4CLDPI6xNSjfqu3yhNmO7EyQ8XpAVEA)](https://youtu.be/bZuev_pO32A "Everything Is AWESOME")
+![How to use ReadMe Generator](https://i9.ytimg.com/vi/bZuev_pO32A/mq2.jpg?sqp=COSh4fwF&rs=AOn4CLDPI6xNSjfqu3yhNmO7EyQ8XpAVEA)](https://youtu.be/bZuev_pO32A "Everything Is AWESOME")
 
 ![How to use ReadMe Generator](./imageassets/notesapp-2020-10-27-125546.gif)
 

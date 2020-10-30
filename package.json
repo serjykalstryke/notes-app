@@ -1,26 +1,18 @@
 {
-  "name": "notes-app",
+  "name": "note-taker",
   "version": "1.0.0",
-  "description": "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0) ## Description  This is a simple note taking application. You can enter a note titles and and details and then use the save icon to save your note. ## Table of contents - [Description](#Description) - [Installation](#Installation) - [Usage](#Usage) - [Licence](#Licence) - [Contributors](#Contributors) - [Test](#Test) - [Repository Link](#Repository) - [Submit Questions to:](#GitHub)  ## Installation you can clone the repository on github if you wish to run it locally, or you can go to the heroku deployment at https://whispering-cliffs-94982.herokuapp.com/notes",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "nodemon": "^2.0.6",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {},
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/serjykalstryke/notes-app.git"
-  },
-  "author": "David Stinnett",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/serjykalstryke/notes-app/issues"
-  },
-  "homepage": "https://github.com/serjykalstryke/notes-app#readme"
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "mysql": "^2.16.0",
+    "nodemon": "^2.0.2",
+    "webmanifest-cli": "0.0.1"
+  }
 }

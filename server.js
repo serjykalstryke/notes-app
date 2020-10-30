@@ -79,7 +79,7 @@ app.delete("/api/notes/:id", (req, res) => {
     // parse the data to get an array of the objects
     notes = JSON.parse(notes);
     // delete the old note from the array on note objects
-    notes = notes.filter(function(note) {
+    notes = notes.filter((note) => {
       return note.id != req.params.id;
     });
     // make it string(stringify)so you can write it to the file

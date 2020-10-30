@@ -12,9 +12,9 @@ const PORT = process.env.PORT || 6900;
 
 //  Initialize notesData
 
-let notesData = [];
+let notes = [];
 
-// Set up body parsing, static, and route middleware
+// Set up middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "Develop/public")));
@@ -29,7 +29,7 @@ app.get("/api/notes", (err, res) => {
     notesData = fs.readFileSync("Develop/db/db.json", "utf8");
     console.log("hello!");
     // parse it so notesData is an array of objects
-    notesData = JSON.parse(notesData);
+    notesData = JSON.parse(notes);
 
     // error handling
   } catch (err) {
@@ -37,7 +37,7 @@ app.get("/api/notes", (err, res) => {
     console.log(err);
   }
   //   send objects to the browser
-  res.json(notesData);
+  res.json(notes);
 });
 
 // writes the new note to the json file
@@ -45,23 +45,23 @@ app.post("/api/notes", (req, res) => {
   try {
     // reads the json file
     notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
-    console.log(notesData);
+    console.log(notes);
 
     // parse the data to get an array of objects
-    notesData = JSON.parse(notesData);
+    notesData = JSON.parse(notes);
     // Set new notes id
-    req.body.id = notesData.length;
+    req.body.id = notes.length;
     // add the new note to the array of note objects
     notesData.push(req.body); // req.body - user input
     // make it string(stringify)so you can write it to the file
-    notesData = JSON.stringify(notesData);
+    notesData = JSON.stringify(notes);
     // writes the new note to file
-    fs.writeFile("./Develop/db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("./Develop/db/db.json", notes, "utf8", function(err) {
       // error handling
       if (err) throw err;
     });
     // changeit back to an array of objects & send it back to the browser(client)
-    res.json(JSON.parse(notesData));
+    res.json(JSON.parse(notes));
 
     // error Handling
   } catch (err) {
@@ -77,21 +77,21 @@ app.delete("/api/notes/:id", (req, res) => {
     //  reads the json file
     notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
     // parse the data to get an array of the objects
-    notesData = JSON.parse(notesData);
+    notesData = JSON.parse(notes);
     // delete the old note from the array on note objects
     notesData = notesData.filter(function(note) {
       return note.id != req.params.id;
     });
     // make it string(stringify)so you can write it to the file
-    notesData = JSON.stringify(notesData);
+    notesData = JSON.stringify(notes);
     // write the new notes to the file
-    fs.writeFile("./Develop/db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("./Develop/db/db.json", notes, "utf8", function(err) {
       // error handling
       if (err) throw err;
     });
 
     // change it back to an array of objects & send it back to the browser (client)
-    res.send(JSON.parse(notesData));
+    res.send(JSON.parse(notes));
 
     // error handling
   } catch (err) {

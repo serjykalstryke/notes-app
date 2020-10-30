@@ -26,10 +26,10 @@ app.use(express.static(path.join(__dirname, "Develop/public")));
 app.get("/api/notes", (err, res) => {
   try {
     // reads the notes from json file
-    notesData = fs.readFileSync("Develop/db/db.json", "utf8");
+    notes = fs.readFileSync("Develop/db/db.json", "utf8");
     console.log("hello!");
-    // parse it so notesData is an array of objects
-    notesData = JSON.parse(notes);
+    // parse it so notes is an array of objects
+    notes = JSON.parse(notes);
 
     // error handling
   } catch (err) {
@@ -44,19 +44,19 @@ app.get("/api/notes", (err, res) => {
 app.post("/api/notes", (req, res) => {
   try {
     // reads the json file
-    notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
+    notes = fs.readFileSync("./Develop/db/db.json", "utf8");
     console.log(notes);
 
     // parse the data to get an array of objects
-    notesData = JSON.parse(notes);
+    notes = JSON.parse(notes);
     // Set new notes id
     req.body.id = notes.length;
     // add the new note to the array of note objects
-    notesData.push(req.body); // req.body - user input
+    notes.push(req.body); // req.body - user input
     // make it string(stringify)so you can write it to the file
-    notesData = JSON.stringify(notes);
+    notes = JSON.stringify(notes);
     // writes the new note to file
-    fs.writeFile("./Develop/db/db.json", notes, "utf8", function(err) {
+    fs.writeFile("./Develop/db/db.json", notes, "utf8", (err) => {
       // error handling
       if (err) throw err;
     });
@@ -75,17 +75,17 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   try {
     //  reads the json file
-    notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
+    notes = fs.readFileSync("./Develop/db/db.json", "utf8");
     // parse the data to get an array of the objects
-    notesData = JSON.parse(notes);
+    notes = JSON.parse(notes);
     // delete the old note from the array on note objects
-    notesData = notesData.filter(function(note) {
+    notes = notes.filter((note) => {
       return note.id != req.params.id;
     });
     // make it string(stringify)so you can write it to the file
-    notesData = JSON.stringify(notes);
+    notes = JSON.stringify(notes);
     // write the new notes to the file
-    fs.writeFile("./Develop/db/db.json", notes, "utf8", function(err) {
+    fs.writeFile("./Develop/db/db.json", notes, "utf8", (err) => {
       // error handling
       if (err) throw err;
     });
@@ -105,7 +105,7 @@ app.delete("/api/notes/:id", (req, res) => {
 app.use(express.static((__dirname, "Develop/public")))
 
 // Start the server on the port
-app.listen(PORT, function() {
+app.listen(PORT, () => {
   console.log("SERVER IS LISTENING: " + PORT);
 });
 

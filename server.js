@@ -56,7 +56,7 @@ app.post("/api/notes", (req, res) => {
     // make it string(stringify)so you can write it to the file
     notes = JSON.stringify(notes);
     // writes the new note to file
-    fs.writeFile("./Develop/db/db.json", notes, "utf8", (err) => {
+    fs.writeFile("./Develop/db/db.json", notes, "utf8", function(err) {
       // error handling
       if (err) throw err;
     });

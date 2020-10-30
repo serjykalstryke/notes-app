@@ -79,13 +79,13 @@ app.delete("/api/notes/:id", (req, res) => {
     // parse the data to get an array of the objects
     notes = JSON.parse(notes);
     // delete the old note from the array on note objects
-    notes = notes.filter((note) => {
+    notes = notes.filter(function(note) {
       return note.id != req.params.id;
     });
     // make it string(stringify)so you can write it to the file
     notes = JSON.stringify(notes);
     // write the new notes to the file
-    fs.writeFile("./Develop/db/db.json", notes, "utf8", (err) => {
+    fs.writeFile("./Develop/db/db.json", notes, "utf8", function(err) {
       // error handling
       if (err) throw err;
     });
@@ -105,7 +105,7 @@ app.delete("/api/notes/:id", (req, res) => {
 app.use(express.static((__dirname, "Develop/public")))
 
 // Start the server on the port
-app.listen(PORT, () => {
+app.listen(PORT, function() {
   console.log("SERVER IS LISTENING: " + PORT);
 });
 

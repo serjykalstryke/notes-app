@@ -1,4 +1,4 @@
-// need express to interact with the front end
+/// need express to interact with the front end
 const express = require("express");
 // need path for filename paths
 const path = require("path");
@@ -102,10 +102,21 @@ app.delete("/api/notes/:id", function(req, res) {
 
 // HTML GET Requests
 
-app.use(express.static((__dirname, "Develop/public")))
+// Web page when the Get started button is clicked
+app.get("/notes", function(req, res) {
+  res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
+});
+
+// If no matching route is found default to home
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+});
+
+app.get("/api/notes", function(req, res) {
+  return res.sendFile(path.json(__dirname, "Develop/db/db.json"));
+});
 
 // Start the server on the port
 app.listen(PORT, function() {
   console.log("SERVER IS LISTENING: " + PORT);
 });
-

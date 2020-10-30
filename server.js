@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 6900;
 
 let notesData = [];
 
-// Set up middleware
+// Set up body parsing, static, and route middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "Develop/public")));
@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "Develop/public")));
 
 // api call response for all the notes, and sends the results to the browser as an array of object
 
-app.get("/api/notes", (err, res) => {
+app.get("/api/notes", function(err, res) {
   try {
     // reads the notes from json file
     notesData = fs.readFileSync("Develop/db/db.json", "utf8");
@@ -41,7 +41,7 @@ app.get("/api/notes", (err, res) => {
 });
 
 // writes the new note to the json file
-app.post("/api/notes", (req, res) => {
+app.post("/api/notes", function(req, res) {
   try {
     // reads the json file
     notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
@@ -72,7 +72,7 @@ app.post("/api/notes", (req, res) => {
 
 // Delete a note
 
-app.delete("/api/notes/:id", (req, res) => {
+app.delete("/api/notes/:id", function(req, res) {
   try {
     //  reads the json file
     notesData = fs.readFileSync("./Develop/db/db.json", "utf8");

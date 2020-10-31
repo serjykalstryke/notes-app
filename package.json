@@ -1,18 +1,27 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Description",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server"
+    "start": "node server.js"
   },
   "author": "David Stinnett",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "mysql": "^2.16.0",
     "nodemon": "^2.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serjykalstryke/notes-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/serjykalstryke/notes-app/issues"
+  },
+  "homepage": "https://github.com/serjykalstryke/notes-app#readme"
 }

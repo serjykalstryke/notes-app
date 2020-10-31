@@ -1,46 +1,76 @@
-# **Notes App**
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-## Description 
-This is a simple note taking application. You can enter a note titles and and details and then use the save icon to save your note.
-## Table of contents
-- [Description](#Description)
-- [Installation](#Installation)
-- [Usage](#Usage)
-- [Licence](#Licence)
-- [Contributors](#Contributors)
-- [Test](#Test)
-- [Repository Link](#Repository)
-- [Submit Questions to:](#GitHub) 
-## Installation
-you can clone the repository on github if you wish to run it locally, or you can go to the heroku deployment at https://whispering-cliffs-94982.herokuapp.com/notes 
+# Unit 11 Express Homework: Note Taker
 
-[![Installation Image](./imageassets/installation.png)
+## Description
 
-## Usage
-Simply type the title and details for the not you wish to add then click the save icon. If you wish to add a new note you can either click the pencil icon or the "Click here to add new note" section at the top of the notes list
+Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.
 
-![How to use ReadMe Generator](https://i9.ytimg.com/vi/bZuev_pO32A/mq2.jpg?sqp=COSh4fwF&rs=AOn4CLDPI6xNSjfqu3yhNmO7EyQ8XpAVEA)](https://youtu.be/bZuev_pO32A "Everything Is AWESOME")
+* The application frontend has already been created, it's your job to build the backend and connect the two.
 
-![How to use ReadMe Generator](./imageassets/notesapp-2020-10-27-125546.gif)
+* The following HTML routes should be created:
 
-## Licence
-GNU AGPLv3
-## Contributors
-David Stinnett
-## Test
-visit the heroku deployment and try out the application, feel free to contact me if you have any issues
-## Repository
-- [Project Repo](https://github.com/serjykalstryke/notes-app)
+  * GET `/notes` - Should return the `notes.html` file.
 
-## Sample of application in action
-![Application in action](./imageassets/1.png)
-![Application in action](./imageassets/2.png)
-![Application in action](./imageassets/3.png)
-![Application in action](./imageassets/4.png)
-![Application in action](./imageassets/5.png)
+  * GET `*` - Should return the `index.html` file
 
-## Questions? Contact me here:
-![Image of me](https://avatars2.githubusercontent.com/u/68971513?v=4)
-- David Stinnett
-- [GitHub Profile](https://github.com/serjykalstryke)
-- <davidstinnett@icloud.com>
+* The application should have a `db.json` file on the backend that will be used to store and retrieve notes using the `fs` module.
+
+* The following API routes should be created:
+
+  * GET `/api/notes` - Should read the `db.json` file and return all saved notes as JSON.
+
+  * POST `/api/notes` - Should recieve a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client.
+
+  * DELETE `/api/notes/:id` - Should recieve a query paramter containing the id of a note to delete. This means you'll need to find a way to give each note a unique `id` when it's saved. In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
+
+## User Story
+
+AS A user, I want to be able to write and save notes
+
+I WANT to be able to delete notes I've written before
+
+SO THAT I can organize my thoughts and keep track of tasks I need to complete
+
+## Business Context
+
+For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
+
+## Acceptance Criteria
+
+Application should allow users to create and save notes.
+
+Application should allow users to view previously saved notes.
+
+Application should allow users to delete previously saved notes.
+
+- - -
+
+## Commit Early and Often
+
+One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+
+* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
+
+* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
+
+Follow these guidelines for committing:
+
+* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
+
+* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
+
+* Don't commit half-done work, for the sake of your collaborators (and your future self!).
+
+* Test your application before you commit to ensure functionality at every step in the development process.
+
+We would like you to have well over 200 commits by graduation, so commit early and often!
+
+## Submission on BCS
+
+You are required to submit the following:
+
+* The URL of the deployed application
+
+* The URL of the GitHub repository
+
+- - -
+© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
